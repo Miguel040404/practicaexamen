@@ -22,7 +22,7 @@ export default async function ListaPlantas() {
                     <li key={planta.id} className="bg-white shadow-md rounded p-4">
                         <div className="flex flex-col items-start space-y-2">
                             <p className="text-2xl font-semibold">Nombre: <span className="font-normal">{planta.nombre}</span></p>
-                            <p className="text-lg font-semibold">Vía de administración: <span className="font-normal">{planta.via}</span></p>
+                            <p className="text-lg font-semibold">Jefe de planta: <span className="font-normal">{planta.jefePlanta}</span></p>
                         </div>
                         <div>
                             {/* <Link href={`/plantas/${planta.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</Link> */}
