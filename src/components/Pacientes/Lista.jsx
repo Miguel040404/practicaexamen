@@ -3,9 +3,9 @@
 import { obtenerPacientes } from "@/lib/data";
 // import Link from "next/link";
 // import Modal from "../modal";
-// import PacienteModificar from "./Modificar";
-// import PacienteEliminar from "./Eliminar";
-// import PacienteInsertar from "./Insertar";
+import PacienteModificar from "./Modificar";
+import PacienteEliminar from "./Eliminar";
+import PacienteInsertar from "./Insertar";
 
 export default async function ListaPacientes() {
 
@@ -13,9 +13,9 @@ export default async function ListaPacientes() {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* <Modal texto="Insertar" className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
+            {/* <Modal texto="Insertar" className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out"> */}
                 <PacienteInsertar />
-            </Modal> */}
+            {/* </Modal> */}
 
             {
                 pacientes.map(paciente =>
@@ -28,14 +28,15 @@ export default async function ListaPacientes() {
                         </div>
                         <div>
                             {/* <Link href={`/pacientes/${paciente.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ver</Link> */}
-                            {/* 
-                            <Modal texto="Eliminar" className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
-                               <PacienteEliminar paciente={paciente}/>
-                            </Modal>
-
-                            <Modal texto="Modificar" className="bg-yellow-500 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
+                            
+                            {/* <Modal texto="Modificar" className="bg-yellow-500 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out"> */}
                                <PacienteModificar paciente={paciente}/>
-                            </Modal> */}
+                            {/* </Modal> */}
+
+                             {/* <Modal texto="Eliminar" className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out"> */}
+                               <PacienteEliminar paciente={paciente}/>
+                            {/* </Modal> */}
+
                         </div>
                     </li>
                 )
