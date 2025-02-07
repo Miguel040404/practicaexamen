@@ -1,18 +1,35 @@
 import { modificarMedicina } from "@/lib/actions";
 
-function MedicinaModificar({ medicina }) {
+function MedicinaModificar({ medicina, pacientes }) {
 
     return (
         <form action={modificarMedicina}>
             <input type="hidden" name="id" defaultValue={medicina.id} />
             <input name='nombre' defaultValue={medicina.nombre} />
             <input name='via' defaultValue={medicina.via} />
-            {/* <select name="via" defaultValue={medicina.via}>
-                <option value="">-- Seleccione una vía de administración --</option>
-                <option value="Oral">Oral</option>
-                <option value="Intravenosa">Intravenosa</option>
-                <option value="Anal">Anal</option>
+
+            {/* <select name="pacienteId" defaultValue={medicina.pacienteId}>
+                <option value="">-- Seleccione un paciente --</option>
+                {pacientes.map(paciente => (
+                    <option key={paciente.id} value={paciente.id}>
+                        {paciente.nombre}
+                    </option>
+                ))}
             </select> */}
+            {/* <input type="checkbox" name="pacienteId" defaultValue={medicina.pacienteId} /> */}
+            {
+                pacientes.map(paciente =>
+                    <label key={paciente.id}>
+                        <input
+                            type="checkbox" 
+                            name={`paciente${paciente.id}`}
+                            value={paciente.nombre}/>
+
+                        {paciente.nombre}
+
+                    </label>
+                )
+            }
 
             <button className="border-2 border-black">Modificar</button>
         </form>

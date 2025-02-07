@@ -1,7 +1,7 @@
 //------------------------------------------- componente servidor
 
-import { obtenerMedicinas } from "@/lib/data";
-// import Link from "next/link";
+import { obtenerMedicinas, obtenerPacientes } from "@/lib/data";
+import Link from "next/link";
 
 import MedicinaModificar from "./Modificar";
 import MedicinaEliminar from "./Eliminar";
@@ -11,11 +11,12 @@ import Modal from "@/components/Modal";
 export default async function ListaMedicinas() {
 
     const medicinas = await obtenerMedicinas();
+    const pacientes = await obtenerPacientes();
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Modal texto="Insertar" className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
-                <MedicinaInsertar />
+                <MedicinaInsertar pacientes={pacientes} />
             </Modal>
 
             {
@@ -30,7 +31,7 @@ export default async function ListaMedicinas() {
 
 
                             <Modal texto="Modificar" className="bg-yellow-500 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
-                               <MedicinaModificar medicina={medicina}/>
+                               <MedicinaModificar medicina={medicina} pacientes={pacientes}/>
                             </Modal>
                             
                             <Modal texto="Eliminar" className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md cursor-pointer transition-colors duration-300 ease-in-out">
